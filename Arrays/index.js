@@ -79,7 +79,7 @@ console.log("array elements after reverse = " + arr1.reverse()); // array elemen
 
 // 12. Map() -
 // map() transform each element in an array.
-
+console.log("Elements to Array");
 console.log(arr1);
 const newArray = arr1.map((ar) => ar * 2);
 console.log(newArray);
@@ -88,9 +88,14 @@ console.log(newArray);
 // filter() Filter elements based on condition
 
 // newArray = [ 16, 10, 8, 44, 22, 2 ]
+console.log("filter of array");
 const minArrayElement = Math.min(...newArray.map((ar) => ar));
 const min = newArray.filter((ar) => ar === minArrayElement);
 console.log(min);
+
+// ... = this is the spread syntax  which separates the array values which are lengths of the string.
+// spread syntax is there for the Math.max() function to check each value individually and operate on it.
+// Otherwise the Math.max() function will treat all the array elements as a single argument.
 
 // 14. reduce() -
 // The reduce() function in JavaScript is a versatile method that processes each element in an array and combines them into a single value.
@@ -114,6 +119,26 @@ const sumOfNums = nums.reduce(
   0
 );
 console.log(sumOfNums);
+
+// 15. from()
+// The Array.from() method returns an array from any object with a length property.
+// The Array.from() method returns an array from any iterable object.
+
+// SYNTAX - Array.from(object, mapFunction, thisValue)
+
+// object - Required.
+// The object to convert to an array.
+
+// mapFunction - Optional
+// A map function to call on each item.
+
+// thisValue - Optional
+// A value to use as this for the map function
+
+console.log("Generating an array");
+const arr_Generate = Array.from({ length: 6 }, (_, x) => x + 1);
+
+console.log(arr_Generate);
 
 // Factorial of all elements in the array using a function and map
 const factorial = (n) => {
@@ -187,3 +212,26 @@ console.log(count);
 // Using reduce to find occurence in an array
 const occu = nums1.reduce((count, num) => (num === n ? count + 1 : count), 0);
 console.log(occu);
+
+//write a program to calculate factorial of a number using reduce and using for loops
+
+// Factorial using  reduce
+//1. Generate an array
+const arr_nums = (num) => Array.from({ length: num }, (_, i) => i + 1);
+console.log(arr_nums(6));
+
+// Using array to calculate factorial
+const fact_arr_nums = (n) =>
+  arr_nums(n).reduce((prev, current) => prev * current, 1);
+console.log(fact_arr_nums(6));
+
+//  Factorial using for loop
+fact = 1;
+const fact_for = (n) => {
+  for (let i = 1; i <= n; i++) {
+    fact = fact * i;
+  }
+  return fact;
+};
+
+console.log(fact_for(6));
